@@ -23,8 +23,33 @@ const items = ['LinkedIn', 'Resume'];
 ShapeDecoration kHeaderDecoration = ShapeDecoration(
   color: Colors.white.withOpacity(0.009),
   shape: SmoothRectangleBorder(
-    side: BorderSide(color: Colors.white.withOpacity(0.15), width: 2),
+    side: BorderSide(color: Colors.white.withOpacity(0.15), width: 1),
     smoothness: 1.2,
     borderRadius: AppDecorations.wheelRadius,
+  ),
+);
+
+ShapeDecoration kBodyDecoration = ShapeDecoration(
+  shape: SmoothRectangleBorder(
+    side: BorderSide(color: Colors.white.withOpacity(0.15), width: 1),
+    smoothness: 1.2,
+    borderRadius: AppDecorations.cardRadius,
+  ),
+);
+
+ShapeDecoration kBodyGradientDecoration = ShapeDecoration(
+  shape: SmoothRectangleBorder(
+    side: BorderSide(color: Colors.white.withOpacity(0.15), width: 1),
+    smoothness: 1.2,
+    borderRadius: AppDecorations.cardRadius,
+  ),
+  gradient: LinearGradient(
+    begin: Alignment.topLeft,
+    // end: Alignment.topCenter,
+    stops: const [0, 0.5],
+    colors: [
+      Colors.white.withOpacity(0.1),
+      Colors.white.withOpacity(0.0),
+    ],
   ),
 );

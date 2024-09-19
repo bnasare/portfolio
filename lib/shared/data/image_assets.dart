@@ -13,5 +13,5 @@ class ImageAssets {
   static const String medal = 'assets/static/medal.png';
   static const String padlock = 'assets/static/padlock.png';
   static const String washEmployees = 'assets/static/wash_employees.png';
-  static const String payroll = 'assets/static/payroll.jpg';
+  static const String headshot = 'assets/images/headshot.jpg';
 }

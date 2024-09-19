@@ -34,6 +34,9 @@ class AtSymbol extends StatelessWidget {
           if (value == 'resume') {
             log('Resume text clicked');
           }
+          if (value == 'linkedin') {
+            log('LinkedIn text clicked');
+          }
         },
         itemBuilder: (BuildContext context) {
           return [
@@ -45,6 +48,18 @@ class AtSymbol extends StatelessWidget {
                 color: Colors.transparent,
                 child: const AppText.smaller(
                   '         Resume',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ),
+            PopupMenuItem<String>(
+              value: 'linkedin',
+              height: 40,
+              padding: EdgeInsets.zero,
+              child: Container(
+                color: Colors.transparent,
+                child: const AppText.smaller(
+                  '         LinkedIn',
                   style: TextStyle(color: Colors.white),
                 ),
               ),
