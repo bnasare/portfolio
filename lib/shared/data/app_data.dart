@@ -18,7 +18,7 @@ List<Map<String, dynamic>> navItems = [
   },
 ];
 
-const items = ['LinkedIn', 'Resume'];
+const items = ['Github', 'LinkedIn', 'Resume'];
 
 ShapeDecoration kHeaderDecoration = ShapeDecoration(
   color: Colors.transparent,

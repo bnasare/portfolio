@@ -1,8 +1,10 @@
 import 'dart:developer';
+import 'dart:js' as js;
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/shared/constants/decorations.dart';
+import 'package:my_portfolio/shared/data/sns_links.dart';
 
 import '../../../shared/constants/app_text.dart';
 import '../../../shared/data/app_data.dart';
@@ -66,8 +68,19 @@ class HeaderDesktop extends StatelessWidget {
                     return Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        if (index != 0) const SizedBox(width: 30),
-                        HoverText(text: item),
+                        if (index != 0) const SizedBox(width: 20),
+                        GestureDetector(
+                            onTap: () {
+                              index == 0
+                                  ? js.context
+                                      .callMethod('open', [SnsLinks.github])
+                                  : index == 1
+                                      ? js.context.callMethod(
+                                          'open', [SnsLinks.linkedin])
+                                      : js.context.callMethod(
+                                          'open', [SnsLinks.resume]);
+                            },
+                            child: HoverText(text: item)),
                       ],
                     );
                   }).toList(),
