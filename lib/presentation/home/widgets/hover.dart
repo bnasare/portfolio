@@ -72,8 +72,9 @@ class HoverButtonState extends State<HoverButton> {
 
 class HoverText extends StatefulWidget {
   final String text;
+  final Color? textColor;
 
-  const HoverText({super.key, required this.text});
+  const HoverText({super.key, required this.text, this.textColor});
 
   @override
   HoverTextState createState() => HoverTextState();
@@ -91,11 +92,11 @@ class HoverTextState extends State<HoverText> {
       child: AppText.smaller(
         widget.text,
         style: TextStyle(
-          color: Colors.white,
+          color: widget.textColor ?? Colors.white,
           decoration:
               isHovered ? TextDecoration.underline : TextDecoration.none,
           decorationThickness: 2,
-          decorationColor: Colors.white,
+          decorationColor: widget.textColor ?? Colors.white,
         ),
       ),
     );
