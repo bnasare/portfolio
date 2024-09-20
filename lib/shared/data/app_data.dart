@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_corner/smooth_corner.dart';
 
+import '../../presentation/home/widgets/testimonial.dart';
 import '../constants/decorations.dart';
 
 List<Map<String, dynamic>> navItems = [
@@ -61,3 +62,18 @@ ShapeDecoration kBodyGradientDecoration = ShapeDecoration(
     ],
   ),
 );
+
+List<Testimonial> testimonials = [
+  const Testimonial(
+    name: 'Shachar Golan, MBA',
+    title: 'Get Superstars Inc.',
+    quote:
+        '"I was excited to work with Benedict and get to work on a project that exceeded my expectations. He was a pleasure to work with and I can\'t recommend him enough."',
+  ),
+  const Testimonial(
+    name: 'Dr. Teata Duut',
+    title: 'Zomujo Foundation',
+    quote:
+        '"Benedict has a keen eye for detail; a valuable asset to any team."',
+  ),
+];

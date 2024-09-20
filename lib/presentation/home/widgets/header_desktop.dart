@@ -8,7 +8,7 @@ import 'package:my_portfolio/shared/data/sns_links.dart';
 
 import '../../../shared/constants/app_text.dart';
 import '../../../shared/data/app_data.dart';
-import '../../../widgets/hover.dart';
+import 'hover.dart';
 
 class HeaderDesktop extends StatelessWidget {
   const HeaderDesktop({super.key});

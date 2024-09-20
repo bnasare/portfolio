@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 import '../../../shared/constants/decorations.dart';
 import '../../../shared/data/app_data.dart';
-import '../../../widgets/at_symbol.dart';
-import '../../../widgets/hover.dart';
+import 'at_symbol.dart';
+import 'hover.dart';
 
 class HeaderTablet extends StatelessWidget {
   const HeaderTablet({super.key});

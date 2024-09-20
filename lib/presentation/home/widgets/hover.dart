@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_corner/smooth_corner.dart';
 
-import '../shared/constants/app_text.dart';
-import '../shared/constants/decorations.dart';
+import '../../../shared/constants/app_text.dart';
+import '../../../shared/constants/decorations.dart';
 
 class HoverButton extends StatefulWidget {
   final IconData icon;
