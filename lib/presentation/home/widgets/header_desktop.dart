@@ -1,6 +1,8 @@
 import 'dart:developer';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/shared/constants/decorations.dart';
 
 import '../../../shared/constants/app_text.dart';
 import '../../../shared/data/app_data.dart';
@@ -13,53 +15,66 @@ class HeaderDesktop extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.fromLTRB(150, 40, 150, 20),
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      width: double.infinity,
-      height: 120,
-      decoration: kHeaderDecoration,
-      child: Row(
-        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Stack(
         children: [
-          // Leading "#BANK" text with pointer cursor
-          GestureDetector(
-            onTap: () {
-              log('Hey there');
-            },
-            child: const MouseRegion(
-              cursor: SystemMouseCursors.click,
-              child: AppText.medium(
-                '# B A N K',
-                style: TextStyle(
-                    fontWeight: FontWeight.normal, color: Colors.white),
+          Positioned.fill(
+            child: ClipRRect(
+              borderRadius: AppDecorations.wheelRadius,
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                child: Container(
+                  decoration: const BoxDecoration(),
+                ),
               ),
             ),
           ),
-          const Spacer(),
-          // Centered buttons
-          Row(
-            children: [
-              ...navItems.map((navItem) => HoverButton(
-                    icon: navItem['icon'],
-                    text: navItem['text'],
-                  )),
-            ],
+          // Header content
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            width: double.infinity,
+            height: 120,
+            decoration: kHeaderDecoration,
+            child: Row(
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    log('Hey there');
+                  },
+                  child: const MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: AppText.medium(
+                      '# B A N K',
+                      style: TextStyle(
+                          fontWeight: FontWeight.normal, color: Colors.white),
+                    ),
+                  ),
+                ),
+                const Spacer(),
+                Row(
+                  children: [
+                    ...navItems.map((navItem) => HoverButton(
+                          icon: navItem['icon'],
+                          text: navItem['text'],
+                        )),
+                  ],
+                ),
+                const Spacer(),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: items.map((item) {
+                    int index = items.indexOf(item);
+                    return Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        if (index != 0) const SizedBox(width: 30),
+                        HoverText(text: item),
+                      ],
+                    );
+                  }).toList(),
+                )
+              ],
+            ),
           ),
-          const Spacer(),
-
-          // Trailing LinkedIn and Resume text with pointer cursors
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: items.map((item) {
-              int index = items.indexOf(item);
-              return Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  if (index != 0) const SizedBox(width: 30),
-                  HoverText(text: item),
-                ],
-              );
-            }).toList(),
-          )
         ],
       ),
     );

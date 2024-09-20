@@ -21,7 +21,7 @@ List<Map<String, dynamic>> navItems = [
 const items = ['LinkedIn', 'Resume'];
 
 ShapeDecoration kHeaderDecoration = ShapeDecoration(
-  color: Colors.white.withOpacity(0.009),
+  color: Colors.transparent,
   shape: SmoothRectangleBorder(
     side: BorderSide(color: Colors.white.withOpacity(0.15), width: 1),
     smoothness: 1.2,

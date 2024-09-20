@@ -31,28 +31,38 @@ class HoverButtonState extends State<HoverButton> {
       onEnter: (_) => setState(() => isHovered = true),
       onExit: (_) => setState(() => isHovered = false),
       child: Container(
-        margin:
-            EdgeInsets.symmetric(horizontal: widget.isDesktop == true ? 10 : 0),
-        width: 150,
+        margin: EdgeInsets.symmetric(horizontal: widget.isDesktop ? 10 : 0),
+        constraints: const BoxConstraints(minWidth: 150),
         decoration: ShapeDecoration(
           shape: SmoothRectangleBorder(
             smoothness: 1.2,
-            borderRadius: widget.isDesktop == true
+            borderRadius: widget.isDesktop
                 ? AppDecorations.cardInnerRadius
                 : AppDecorations.cardRadius,
           ),
           color: isHovered
               ? Colors.white.withOpacity(0.15)
-              : Colors.grey.withOpacity(0.03),
+              : const Color(0xFF1A1A1A),
         ),
-        padding: EdgeInsets.symmetric(vertical: widget.height),
+        padding: EdgeInsets.symmetric(vertical: widget.height, horizontal: 10),
         child: Row(
+          mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(widget.icon, color: Colors.white, size: 18),
-            const SizedBox(width: 10),
-            AppText.smaller(widget.text,
-                style: const TextStyle(color: Colors.white, fontSize: 12)),
+            if (widget.isDesktop) ...[
+              Icon(widget.icon, color: Colors.white, size: 18),
+              const SizedBox(width: 10),
+            ],
+            Flexible(
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                alignment: Alignment.center,
+                child: AppText.smaller(
+                  widget.text,
+                  style: const TextStyle(color: Colors.white, fontSize: 12),
+                ),
+              ),
+            ),
           ],
         ),
       ),
