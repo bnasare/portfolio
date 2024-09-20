@@ -37,6 +37,14 @@ ShapeDecoration kBodyDecoration = ShapeDecoration(
   ),
 );
 
+ShapeDecoration kBodyDecoration2 = ShapeDecoration(
+  shape: SmoothRectangleBorder(
+    side: BorderSide(color: Colors.white.withOpacity(0.15), width: 1),
+    smoothness: 1.2,
+    borderRadius: AppDecorations.cardInnerRadius,
+  ),
+);
+
 ShapeDecoration kBodyGradientDecoration = ShapeDecoration(
   shape: SmoothRectangleBorder(
     side: BorderSide(color: Colors.white.withOpacity(0.15), width: 1),
