@@ -63,6 +63,23 @@ ShapeDecoration kBodyGradientDecoration = ShapeDecoration(
   ),
 );
 
+ShapeDecoration kBodyGradientDecoration2 = ShapeDecoration(
+  shape: SmoothRectangleBorder(
+    side: BorderSide(color: Colors.white.withOpacity(0.15), width: 1),
+    smoothness: 1.2,
+    borderRadius: AppDecorations.cardInnerRadius,
+  ),
+  gradient: LinearGradient(
+    begin: Alignment.topLeft,
+    // end: Alignment.topCenter,
+    stops: const [0, 0.5],
+    colors: [
+      Colors.white.withOpacity(0.1),
+      Colors.white.withOpacity(0.0),
+    ],
+  ),
+);
+
 List<Testimonial> testimonials = [
   const Testimonial(
     name: 'Shachar Golan, MBA',
@@ -75,5 +92,48 @@ List<Testimonial> testimonials = [
     title: 'Zomujo Foundation',
     quote:
         '"Benedict has a keen eye for detail; a valuable asset to any team."',
+  ),
+];
+
+class Project {
+  final String projectName;
+  final String company;
+  final String description;
+  final bool isAndroid;
+  final bool isIOS;
+
+  Project({
+    required this.projectName,
+    required this.company,
+    required this.description,
+    this.isAndroid = false,
+    this.isIOS = false,
+  });
+}
+
+
+final List<Project> projects = [
+  Project(
+    projectName: 'Zyptyk',
+    company: 'Zomujo Foundation',
+    description:
+        'The Zyptyk mobile app helps users track and improve their mental well-being through self-care exercises, mood tracking, and expert insights.',
+    isAndroid: true,
+    isIOS: true,
+  ),
+  Project(
+    projectName: 'Superstars',
+    company: 'Get Superstars Inc.',
+    description:
+        'Superstars is a video-based professional networking app that connects professionals for networking, job opportunities, and career development.',
+    isAndroid: true,
+    isIOS: true,
+  ),
+  Project(
+    projectName: 'AFC',
+    company: 'Wise Tech',
+    description:
+        'This app facilitates the clients\' car wash, restaurant, and laundry business operations with comprehensive management tools.',
+    isAndroid: true,
   ),
 ];

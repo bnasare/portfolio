@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/presentation/home/widgets/hover.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:whatsapp_unilink/whatsapp_unilink.dart';
 
@@ -7,6 +6,7 @@ import '../../../shared/constants/app_spacer.dart';
 import '../../../shared/constants/app_text.dart';
 import '../../../shared/data/app_data.dart';
 import '../../../shared/data/image_assets.dart';
+import 'custom_info_card.dart';
 import 'testimonial.dart';
 
 class HomeSecondHalf extends StatelessWidget {
@@ -83,84 +83,30 @@ class HomeSecondHalf extends StatelessWidget {
             ),
           ),
           const AppSpacer.vLarge(),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            height: 130,
-            width: double.infinity,
-            decoration: kBodyDecoration2,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const AppText.medium(
-                  'Contact Me',
-                  size: 16,
-                  color: Colors.white,
-                  padding: EdgeInsets.only(bottom: 5),
-                ),
-                GestureDetector(
-                  onTap: () async {
-                    const email = 'mailto:benedictasare2@gmail.com';
-                    await launchUrlString(email);
-                  },
-                  child: Row(
-                    children: [
-                      Material(
-                        color: const Color.fromARGB(255, 50, 50, 50),
-                        borderRadius: BorderRadius.circular(5),
-                        child: Padding(
-                          padding: const EdgeInsets.all(3.0),
-                          child: Image.asset(
-                            ImageAssets.mail,
-                            height: 20,
-                            width: 20,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                      const AppSpacer.hShort(),
-                      HoverText(
-                        text: 'benedictasare2@gmail.com',
-                        textColor: Colors.grey[400],
-                      )
-                    ],
-                  ),
-                ),
-                const AppSpacer.vShorter(),
-                GestureDetector(
-                  onTap: () async {
-                    final link = const WhatsAppUnilink(
-                      phoneNumber: '(+233)-57-671-1041',
-                      text: 'Hello, this is a WhatsApp message',
-                    ).toString();
-
-                    await launchUrlString(link);
-                  },
-                  child: Row(
-                    children: [
-                      Material(
-                        color: const Color.fromARGB(255, 50, 50, 50),
-                        borderRadius: BorderRadius.circular(5),
-                        child: Padding(
-                          padding: const EdgeInsets.all(3.0),
-                          child: Image.asset(
-                            ImageAssets.whatsapp,
-                            height: 20,
-                            width: 20,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                      const AppSpacer.hShort(),
-                      HoverText(
-                        text: '(+233)-57-671-1041',
-                        textColor: Colors.grey[400],
-                      )
-                    ],
-                  ),
-                )
-              ],
-            ),
+          CustomInfoCard(
+            shapeDecoration: kBodyDecoration2,
+            title: 'Contact Me',
+            infoList: [
+              CustomInfo(
+                label: 'benedictasare2@gmail.com',
+                imageAsset: ImageAssets.mail,
+                onTap: () async {
+                  const email = 'mailto:benedictasare2@gmail.com';
+                  await launchUrlString(email);
+                },
+              ),
+              CustomInfo(
+                label: '(+233)-57-671-1041',
+                imageAsset: ImageAssets.whatsapp,
+                onTap: () async {
+                  final link = const WhatsAppUnilink(
+                    phoneNumber: '(+233)-57-671-1041',
+                    text: 'Hello, this is a WhatsApp message',
+                  ).toString();
+                  await launchUrlString(link);
+                },
+              ),
+            ],
           ),
         ],
       ),
