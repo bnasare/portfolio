@@ -36,6 +36,8 @@ class HomeFirstHalf extends StatelessWidget {
                 ),
                 const AppSpacer.vLarger(),
                 AppText.smaller(
+                  padding: const EdgeInsets.only(right: 50),
+                  align: TextAlign.justify,
                   "I'm Asare Benedict Nana, currently in my second year studying Computer Science at Kwame Nkrumah University of Science and Technology. I’m all about combining solid functionality with good design, and I bring a fresh approach to every project I work on. My goal is to create user-friendly experiences that not only work smoothly but also make a lasting impression. I also focus on using Clean Architecture to build solutions that are easy to maintain and can grow over time.",
                   style: TextStyle(color: Colors.white.withOpacity(0.8)),
                 ),
@@ -87,14 +89,18 @@ class HomeFirstHalf extends StatelessWidget {
                       height: 300,
                       width: double.infinity,
                       decoration: kBodyGradientDecoration,
-                      child: const AppText.large(
-                        'Building Ideas with\nClean Code',
-                        style: TextStyle(
-                          color: Colors.white,
-                          height: 1,
-                          fontSize: 32,
-                          letterSpacing: 2,
-                        ),
+                      child: const Column(
+                        children: [
+                          Align(
+                            alignment: Alignment.topLeft,
+                            child: AppText.medium(
+                              'Tool Kit',
+                              size: 16,
+                              color: Colors.white,
+                              padding: EdgeInsets.only(top: 10),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                     const AppSpacer.vLarge(),

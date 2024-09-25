@@ -52,10 +52,15 @@ class CustomInfoCard extends StatelessWidget {
                     ),
                   ),
                   const AppSpacer.hShort(),
-                  HoverText(
-                    text: info.label,
-                    textColor: Colors.grey[400],
-                  ),
+                  title == 'Contact Me'
+                      ? HoverText(
+                          text: info.label,
+                          textColor: Colors.grey[400],
+                        )
+                      : AppText.smaller(
+                          info.label,
+                          color: Colors.grey[400],
+                        ),
                 ],
               ),
             );
