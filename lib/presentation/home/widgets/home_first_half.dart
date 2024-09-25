@@ -110,11 +110,11 @@ class HomeFirstHalf extends StatelessWidget {
                       infoList: [
                         CustomInfo(
                           label: 'Ghana',
-                          imageAsset: ImageAssets.mail,
+                          imageAsset: ImageAssets.ghana,
                         ),
                         CustomInfo(
                           label: 'USA',
-                          imageAsset: ImageAssets.whatsapp,
+                          imageAsset: ImageAssets.USA,
                         ),
                       ],
                     ),
