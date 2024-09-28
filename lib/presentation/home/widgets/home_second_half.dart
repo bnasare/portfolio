@@ -31,8 +31,8 @@ class HomeSecondHalf extends StatelessWidget {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     border: Border.all(
-                      color: Colors.white.withOpacity(0.8),
-                      width: 0.8,
+                      color: Colors.grey.shade400.withOpacity(0.8),
+                      width: 0.3,
                     ),
                     image: const DecorationImage(
                       image: AssetImage(ImageAssets.headshot),

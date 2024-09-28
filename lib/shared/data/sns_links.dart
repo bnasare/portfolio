@@ -1,4 +1,4 @@
-class SnsLinks {
+class AppLinks {
   static const String github = 'https://github.com/bnasare';
   static const String linkedin = 'https://www.linkedin.com/in/benedictasare';
   static const String resume =

@@ -73,12 +73,12 @@ class HeaderDesktop extends StatelessWidget {
                             onTap: () {
                               index == 0
                                   ? js.context
-                                      .callMethod('open', [SnsLinks.github])
+                                      .callMethod('open', [AppLinks.github])
                                   : index == 1
                                       ? js.context.callMethod(
-                                          'open', [SnsLinks.linkedin])
+                                          'open', [AppLinks.linkedin])
                                       : js.context.callMethod(
-                                          'open', [SnsLinks.resume]);
+                                          'open', [AppLinks.resume]);
                             },
                             child: HoverText(text: item)),
                       ],

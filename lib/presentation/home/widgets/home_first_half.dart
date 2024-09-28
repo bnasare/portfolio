@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/presentation/home/widgets/hover.dart';
+import 'package:my_portfolio/shared/constants/decorations.dart';
 
 import '../../../shared/constants/app_spacer.dart';
 import '../../../shared/constants/app_text.dart';
@@ -89,15 +90,49 @@ class HomeFirstHalf extends StatelessWidget {
                       height: 300,
                       width: double.infinity,
                       decoration: kBodyGradientDecoration,
-                      child: const Column(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Align(
+                          const Align(
                             alignment: Alignment.topLeft,
                             child: AppText.medium(
                               'Tool Kit',
                               size: 16,
                               color: Colors.white,
-                              padding: EdgeInsets.only(top: 10),
+                              padding: EdgeInsets.only(top: 20),
+                            ),
+                          ),
+                          Expanded(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    _buildIcon(imagePath: ImageAssets.flutter),
+                                    const AppSpacer.vLarge(),
+                                    _buildIcon(imagePath: ImageAssets.node)
+                                  ],
+                                ),
+                                Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    _buildIcon(imagePath: ImageAssets.postman),
+                                    _buildIcon(imagePath: ImageAssets.docker),
+                                    _buildIcon(imagePath: ImageAssets.git)
+                                  ],
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    _buildIcon(imagePath: ImageAssets.firebase),
+                                    const AppSpacer.vLarge(),
+                                    _buildIcon(imagePath: ImageAssets.mongo)
+                                  ],
+                                ),
+                              ],
                             ),
                           ),
                         ],
@@ -127,4 +162,19 @@ class HomeFirstHalf extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget _buildIcon({IconData? icon, Color? color, String? imagePath}) {
+  return Container(
+    width: 50,
+    height: 50,
+    padding: const EdgeInsets.all(8),
+    decoration: BoxDecoration(
+      color: Colors.grey[800],
+      borderRadius: AppDecorations.tinyRadius,
+    ),
+    child: imagePath != null
+        ? Image.asset(imagePath)
+        : Icon(icon ?? Icons.apps, color: color ?? Colors.white, size: 30),
+  );
 }

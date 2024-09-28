@@ -33,13 +33,13 @@ class AtSymbol extends StatelessWidget {
         padding: const EdgeInsets.all(0),
         onSelected: (value) {
           if (value == 'resume') {
-            js.context.callMethod('open', [SnsLinks.resume]);
+            js.context.callMethod('open', [AppLinks.resume]);
           }
           if (value == 'linkedin') {
-            js.context.callMethod('open', [SnsLinks.linkedin]);
+            js.context.callMethod('open', [AppLinks.linkedin]);
           }
           if (value == 'github') {
-            js.context.callMethod('open', [SnsLinks.github]);
+            js.context.callMethod('open', [AppLinks.github]);
           }
         },
         itemBuilder: (BuildContext context) {
