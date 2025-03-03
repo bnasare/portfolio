@@ -8,6 +8,7 @@ import '../../../../../shared/constants/app_spacer.dart';
 import '../../../../../shared/constants/app_text.dart';
 import '../../../../../shared/data/app_data.dart';
 import '../../../../../shared/data/image_assets.dart';
+import '../../../../../shared/widgets/snackbar.dart';
 import 'custom_info_card.dart';
 import 'project_card.dart';
 
@@ -74,7 +75,13 @@ class HomeFirstHalf extends StatelessWidget {
                             onTap: () {
                               log('message');
                             },
-                            child: const HoverText(text: 'View All')),
+                            child: HoverText(
+                              text: 'View All',
+                              onTap: () {
+                                SnackBarHelper.showInfoSnackBar(context,
+                                    "Portfolio highlights coming soon. Stay tuned!");
+                              },
+                            )),
                       ],
                     ),
                     ...projects.map((project) => ProjectCard(

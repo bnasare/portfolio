@@ -129,9 +129,6 @@ class HoverTextState extends State<HoverText> {
         if (widget.onTap != null) {
           widget.onTap!();
         }
-        // Show a SnackBar message when tapped
-        SnackBarHelper.showInfoSnackBar(
-            context, "Portfolio highlights coming soon. Stay tuned!");
       },
       child: MouseRegion(
         cursor: SystemMouseCursors.click,

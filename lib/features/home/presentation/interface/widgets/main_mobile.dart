@@ -7,6 +7,7 @@ import '../../../../../shared/constants/app_spacer.dart';
 import '../../../../../shared/constants/app_text.dart';
 import '../../../../../shared/data/app_data.dart';
 import '../../../../../shared/data/image_assets.dart';
+import '../../../../../shared/widgets/snackbar.dart';
 import 'custom_info_card.dart';
 import 'hover.dart';
 import 'project_card.dart';
@@ -59,17 +60,23 @@ class MainMobile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    AppText.medium(
+                    const AppText.medium(
                       'Featured Projects',
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    HoverText(text: 'View All'),
+                    HoverText(
+                      text: 'View All',
+                      onTap: () {
+                        SnackBarHelper.showInfoSnackBar(context,
+                            "Portfolio highlights coming soon. Stay tuned!");
+                      },
+                    ),
                   ],
                 ),
                 ...projects.map((project) => ProjectCard(
