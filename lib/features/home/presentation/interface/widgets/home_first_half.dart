@@ -1,11 +1,13 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/presentation/home/widgets/hover.dart';
+import 'package:my_portfolio/features/home/presentation/interface/widgets/hover.dart';
 import 'package:my_portfolio/shared/constants/decorations.dart';
 
-import '../../../shared/constants/app_spacer.dart';
-import '../../../shared/constants/app_text.dart';
-import '../../../shared/data/app_data.dart';
-import '../../../shared/data/image_assets.dart';
+import '../../../../../shared/constants/app_spacer.dart';
+import '../../../../../shared/constants/app_text.dart';
+import '../../../../../shared/data/app_data.dart';
+import '../../../../../shared/data/image_assets.dart';
 import 'custom_info_card.dart';
 import 'project_card.dart';
 
@@ -58,17 +60,21 @@ class HomeFirstHalf extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    const Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        AppText.medium(
+                        const AppText.medium(
                           'Featured Projects',
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        HoverText(text: 'View All'),
+                        GestureDetector(
+                            onTap: () {
+                              log('message');
+                            },
+                            child: const HoverText(text: 'View All')),
                       ],
                     ),
                     ...projects.map((project) => ProjectCard(
@@ -90,11 +96,11 @@ class HomeFirstHalf extends StatelessWidget {
                       height: 300,
                       width: double.infinity,
                       decoration: kBodyGradientDecoration,
-                      child: Column(
+                      child: const Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Align(
+                          Align(
                             alignment: Alignment.topLeft,
                             child: AppText.medium(
                               'Tool Kit',
@@ -110,26 +116,26 @@ class HomeFirstHalf extends StatelessWidget {
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    _buildIcon(imagePath: ImageAssets.flutter),
-                                    const AppSpacer.vLarge(),
-                                    _buildIcon(imagePath: ImageAssets.node)
+                                    IconWidget(imagePath: ImageAssets.flutter),
+                                    AppSpacer.vLarge(),
+                                    IconWidget(imagePath: ImageAssets.node)
                                   ],
                                 ),
                                 Column(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceEvenly,
                                   children: [
-                                    _buildIcon(imagePath: ImageAssets.postman),
-                                    _buildIcon(imagePath: ImageAssets.docker),
-                                    _buildIcon(imagePath: ImageAssets.git)
+                                    IconWidget(imagePath: ImageAssets.postman),
+                                    IconWidget(imagePath: ImageAssets.docker),
+                                    IconWidget(imagePath: ImageAssets.git)
                                   ],
                                 ),
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    _buildIcon(imagePath: ImageAssets.firebase),
-                                    const AppSpacer.vLarge(),
-                                    _buildIcon(imagePath: ImageAssets.mongo)
+                                    IconWidget(imagePath: ImageAssets.firebase),
+                                    AppSpacer.vLarge(),
+                                    IconWidget(imagePath: ImageAssets.mongo)
                                   ],
                                 ),
                               ],
@@ -164,17 +170,31 @@ class HomeFirstHalf extends StatelessWidget {
   }
 }
 
-Widget _buildIcon({IconData? icon, Color? color, String? imagePath}) {
-  return Container(
-    width: 50,
-    height: 50,
-    padding: const EdgeInsets.all(8),
-    decoration: BoxDecoration(
-      color: Colors.grey[800],
-      borderRadius: AppDecorations.tinyRadius,
-    ),
-    child: imagePath != null
-        ? Image.asset(imagePath)
-        : Icon(icon ?? Icons.apps, color: color ?? Colors.white, size: 30),
-  );
+class IconWidget extends StatelessWidget {
+  final IconData? icon;
+  final Color? color;
+  final String? imagePath;
+
+  const IconWidget({
+    super.key,
+    this.icon,
+    this.color,
+    this.imagePath,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 50,
+      height: 50,
+      padding: const EdgeInsets.all(8),
+      decoration: BoxDecoration(
+        color: Colors.grey[800],
+        borderRadius: AppDecorations.tinyRadius,
+      ),
+      child: imagePath != null
+          ? Image.asset(imagePath!)
+          : Icon(icon ?? Icons.apps, color: color ?? Colors.white, size: 30),
+    );
+  }
 }

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:whatsapp_unilink/whatsapp_unilink.dart';
 
-import '../../../shared/constants/app_spacer.dart';
-import '../../../shared/constants/app_text.dart';
-import '../../../shared/data/app_data.dart';
-import '../../../shared/data/image_assets.dart';
+import '../../../../../shared/constants/app_spacer.dart';
+import '../../../../../shared/constants/app_text.dart';
+import '../../../../../shared/data/app_data.dart';
+import '../../../../../shared/data/image_assets.dart';
 import 'custom_info_card.dart';
 import 'testimonial.dart';
 

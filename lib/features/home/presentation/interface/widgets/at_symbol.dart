@@ -3,8 +3,8 @@ import 'dart:js' as js;
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/shared/constants/decorations.dart';
 
-import '../../../shared/constants/app_text.dart';
-import '../../../shared/data/sns_links.dart';
+import '../../../../../shared/constants/app_text.dart';
+import '../../../../../shared/data/sns_links.dart';
 
 class AtSymbol extends StatelessWidget {
   const AtSymbol({super.key});

@@ -1,25 +1,31 @@
 import 'package:flutter/material.dart';
 
-import '../../../shared/constants/app_spacer.dart';
-import '../../../shared/constants/app_text.dart';
+import '../../../../../shared/constants/app_spacer.dart';
+import '../../../../../shared/constants/app_text.dart';
 import 'hover.dart';
 
 class CustomInfoCard extends StatelessWidget {
   final ShapeDecoration shapeDecoration;
   final String title;
   final List<CustomInfo> infoList;
+  final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? margin;
 
   const CustomInfoCard({
     super.key,
     required this.title,
     required this.infoList,
     required this.shapeDecoration,
+    this.padding,
+    this.margin,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      margin: margin ?? EdgeInsets.zero,
+      padding:
+          padding ?? const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       height: 130,
       width: double.infinity,
       decoration: shapeDecoration,

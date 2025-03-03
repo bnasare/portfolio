@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/presentation/home/widgets/header_desktop.dart';
-import 'package:my_portfolio/presentation/home/widgets/header_tablet.dart';
-import 'package:my_portfolio/presentation/home/widgets/main_mobile.dart';
+import 'package:my_portfolio/features/home/presentation/interface/widgets/header_desktop.dart';
+import 'package:my_portfolio/features/home/presentation/interface/widgets/header_tablet.dart';
+import 'package:my_portfolio/features/home/presentation/interface/widgets/main_mobile.dart';
 
 import '../widgets/main_desktop.dart';
 
@@ -28,13 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Column(
                     children: [
                       SizedBox(height: isDesktop ? 200 : 160),
-                      // Main content
                       isDesktop ? const MainDesktop() : const MainMobile(),
-                      // Skills and Projects
-                      // const SizedBox(
-                      //   width: double.infinity,
-                      //   height: 700,
-                      // ),
                     ],
                   ),
                 ),

@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:iconly/iconly.dart';
 import 'package:smooth_corner/smooth_corner.dart';
 
-import '../../presentation/home/widgets/testimonial.dart';
+import '../../features/home/presentation/interface/widgets/testimonial.dart';
 import '../constants/decorations.dart';
 
 List<Map<String, dynamic>> navItems = [
   {
-    'icon': Icons.home_outlined,
+    'icon': IconlyLight.home,
     'text': 'Home',
   },
   {
-    'icon': Icons.home_repair_service_outlined,
+    'icon': IconlyLight.work,
     'text': 'My Work',
   },
   {
-    'icon': Icons.person_3_outlined,
+    'icon': IconlyLight.profile,
     'text': 'About Me',
   },
 ];
@@ -110,7 +111,6 @@ class Project {
     this.isIOS = false,
   });
 }
-
 
 final List<Project> projects = [
   Project(

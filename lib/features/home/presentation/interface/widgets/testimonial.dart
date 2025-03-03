@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../shared/constants/app_spacer.dart';
-import '../../../shared/constants/app_text.dart';
-import '../../../shared/data/app_data.dart';
+import '../../../../../shared/constants/app_spacer.dart';
+import '../../../../../shared/constants/app_text.dart';
+import '../../../../../shared/data/app_data.dart';
 
 class Testimonial extends StatelessWidget {
   final String name;

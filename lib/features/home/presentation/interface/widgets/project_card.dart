@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/shared/data/app_data.dart';
 
-import '../../../shared/constants/app_spacer.dart';
-import '../../../shared/constants/app_text.dart';
+import '../../../../../shared/constants/app_spacer.dart';
+import '../../../../../shared/constants/app_text.dart';
 
 class ProjectCard extends StatelessWidget {
   final String projectName;

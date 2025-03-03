@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/presentation/home/widgets/home_second_half.dart';
+import 'package:my_portfolio/features/home/presentation/interface/widgets/home_second_half.dart';
 
-import '../../../shared/constants/app_spacer.dart';
+import '../../../../../shared/constants/app_spacer.dart';
 import 'home_first_half.dart';
 
 class MainDesktop extends StatelessWidget {
